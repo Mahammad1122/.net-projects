@@ -1,0 +1,86 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="admin.master.cs" Inherits="ActivityProject.admin.admin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        *
+        {
+            margin:0;
+            padding:0;    
+        }
+        body
+        {
+            height:100%;
+            width:100%;    
+        }
+        form
+        {
+            height:100%;
+            width:100%; 
+        }
+        .main
+        {
+            display:grid;
+            grid-template-columns:180px auto;
+            height:100vh;
+            width:100vw;
+         }
+         .sidebar
+         {
+            padding:10px 10px 10px 10px;
+            border-right:1px solid black;   
+            
+            .logo
+            {
+                font-size:30px;
+                text-align:center;
+                border-bottom:1px solid black;
+            }
+         }
+         ul li
+         {
+            padding:10px 45px;
+            margin:10px 0px;  
+            border-radius:20px;
+            
+            a
+            {
+                text-decoration:none;
+                color:black;
+            }
+         }
+         a:hover
+         {
+            color:Blue;    
+         }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div class="main">
+        <div class="sidebar">
+            <div class="logo">Admin</div>
+            <asp:Menu ID="Menu1" runat="server" Orientation="vertical"
+                StaticSubMenuIndent="16px" onmenuitemclick="Menu1_MenuItemClick">
+                    <Items>
+                      <asp:MenuItem Text="Add Book" NavigateUrl="~/admin/addBook.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="All Books" NavigateUrl="~/admin/allBooks.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Students" NavigateUrl="~/admin/students.aspx"></asp:MenuItem>
+                      <asp:MenuItem Text="Issue Book" NavigateUrl="~/admin/issueBook.aspx"></asp:MenuItem>
+
+                      <asp:MenuItem Text="Log Out" Value="LOGOUT"></asp:MenuItem>
+                    </Items>
+            </asp:Menu>
+        </div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
